@@ -5,10 +5,19 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    public function role(){
+        return $this->belongsTo("App\Role");
+    }
+
+    public function otp_code(){
+        return $this->hasOne("App\OtpCode");
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +45,37 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the value indicating whether the IDs are incrementing.
+     *
+     * @return bool
+     */
+    public function getIncrementing()
+    {
+        return false;
+    }
+
+    /**
+     * Get the auto-incrementing key type.
+     *
+     * @return string
+     */
+    public function getKeyType()
+    {
+        return 'string';
+    }
+
+    /**
+     * The "booting" function of model
+     *
+     * @return void
+     */
+    protected static function boot() {
+        static::creating(function ($model) {
+            if ( ! $model->getKey()) {
+                $model->{$model->getKeyName()} = (string) Str::uuid();
+            }
+        });
+    }
 }

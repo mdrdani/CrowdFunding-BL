@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::middleware(['auth','admin','vermail'])->group(function(){
+    
+    Route::get('/admin','TestController@admin');
+    Route::get('/vermail', 'TestController@ver_email');
+});
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

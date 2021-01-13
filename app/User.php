@@ -46,9 +46,9 @@ class User extends Authenticatable
     }
 
     public function isVermail(){
-        if($this->email_verified_at == null){
-            return false;
+        if($this->email_verified_at != null){
+            return true;
         }
-        return true;
+        return false;
     }
 }

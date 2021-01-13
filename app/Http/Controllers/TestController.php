@@ -9,7 +9,7 @@ class TestController extends Controller
 {
     //
     public function admin(){
-        dd(FacadesAuth::user());
+        // dd(FacadesAuth::user());
         return "Berhasil Masuk";
     }
 

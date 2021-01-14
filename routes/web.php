@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/route-1', function(){
+    return 'Terima Kasih Email Anda Sudah Terverifikasi';
+})->middleware(['auth','email_verified']);
+
+Route::get('/route-2', function(){
+    return 'Anda Masuk Sebagai Admin';
+})->middleware(['auth','email_verified','admin']);

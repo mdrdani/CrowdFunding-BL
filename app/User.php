@@ -11,6 +11,21 @@ use Illuminate\Support\Str;
 class User extends Authenticatable
 {
     use Notifiable, UsesUuid;
+
+    protected function get_user_role_id()
+    {
+        $role = \App\Role::where('role_name','user')->first();
+        return $role->id;
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model){
+            $model->role_id = $model->get_user_role_id();
+        });
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -37,4 +52,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin()
+    {
+        if($this->role_id === $this->get_user_role_id()){
+            return false;
+        }
+        return true;
+    }
 }

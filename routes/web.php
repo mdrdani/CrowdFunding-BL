@@ -15,8 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::middleware(['auth','admin'])->group(function(){
+    
+    Route::get('/admin','TestController@admin');
+    
+});
 
+Route::middleware('vermail')->group(function(){
+    
+    Route::get('/vermail', 'TestController@ver_email');
+});
+
+
+<<<<<<< HEAD
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/route-1', function(){
@@ -26,3 +37,7 @@ Route::get('/route-1', function(){
 Route::get('/route-2', function(){
     return 'Anda Masuk Sebagai Admin';
 })->middleware(['auth','email_verified','admin']);
+=======
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> 11b5dd8d4a23d9fd44b9ef3d6cf811be9ea35985

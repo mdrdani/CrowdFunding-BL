@@ -53,11 +53,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+<<<<<<< HEAD
     public function isAdmin()
     {
         if($this->role_id === $this->get_user_role_id()){
             return false;
         }
         return true;
+=======
+    public function isAdmin(){
+        if($this->role_id == 'aadb2d0a-d846-40f3-9e5e-1ea368bc00bc'){
+            return true;
+        }
+        return false;
+    }
+
+    public function isVermail(){
+        if($this->email_verified_at != null){
+            return true;
+        }
+        return false;
+>>>>>>> 11b5dd8d4a23d9fd44b9ef3d6cf811be9ea35985
     }
 }

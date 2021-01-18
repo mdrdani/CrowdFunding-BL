@@ -23,4 +23,13 @@ Route::group([
     Route::post('verification','VerificationController');
     Route::post('update-password','UpdatePasswordController');
     Route::post('login', 'LoginController');
+    Route::post('logout', 'LogoutController');
+});
+
+
+Route::group([
+    'middleware' => ['api','email_verified','auth:api']
+], function(){
+    Route::get('/profile/show','ProfileController@show');
+    Route::post('/profile/update','ProfileController@update');
 });

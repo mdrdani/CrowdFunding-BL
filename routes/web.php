@@ -35,4 +35,8 @@ Route::get('/route-1', function(){
 
 Route::get('/route-2', function(){
     return 'Anda Masuk Sebagai Admin';
+<<<<<<< HEAD
 })->middleware(['auth','email_verified','admin']);
+=======
+})->middleware(['auth','email_verified','admin']);
+>>>>>>> f9aa46a49e1597a3535c8997414e55ee66d0b28a

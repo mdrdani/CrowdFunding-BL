@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\RegisterRequest;
+use Illuminate\Http\Request;
 use App\User;
 
 class RegisterController extends Controller
@@ -14,16 +14,23 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(RegisterRequest $request)
+    public function __invoke(Request $request)
     {
         //
-
-        User::create([
-            'name' => request('name'),
-            'email' => request('email'),
-            'password' => bcrypt(request('password')),
+        $request->validate([
+            'email' => 'required|unique:users,email|email',
+            'name' => 'required',
         ]);
 
-        return response("Thanks you are registered");
+        $data_request = $request->all();
+        $user = User::create($data_request);
+
+        $data['user'] = $user;
+
+        return response()->json([
+            'response_code' => '00',
+            'response_message' => 'User baru berhasil di daftarkan, silahkan cek email untuk melihat code OTP',
+            'data' => $data
+        ]);
     }
 }

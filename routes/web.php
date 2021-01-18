@@ -14,25 +14,3 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::middleware(['auth','admin'])->group(function(){
-    
-    Route::get('/admin','TestController@admin');
-    
-});
-
-Route::middleware('vermail')->group(function(){
-    
-    Route::get('/vermail', 'TestController@ver_email');
-});
-
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/route-1', function(){
-    return 'Terima Kasih Email Anda Sudah Terverifikasi';
-})->middleware(['auth','email_verified']);
-
-Route::get('/route-2', function(){
-    return 'Anda Masuk Sebagai Admin';
-})->middleware(['auth','email_verified','admin']);

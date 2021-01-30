@@ -11,11 +11,4 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('app');
-// });
-
-
-Route::get('/{any?}', function(){
-    return 'masuk';
-})->where('any', '.*');
+Route::view('/{any?}', 'app')->where('any', '.*');

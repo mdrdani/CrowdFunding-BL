@@ -236,9 +236,106 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    console.log('component mounted');
+  name: 'App',
+  data: function data() {
+    return {
+      drawer: false,
+      menus: [{
+        title: 'Home',
+        icon: 'mdi-home',
+        route: '/'
+      }, {
+        title: 'Campaigns',
+        icon: 'mdi-hand-heart',
+        route: '/campaigns'
+      }],
+      guest: true
+    };
   }
 });
 
@@ -1345,25 +1442,262 @@ var render = function() {
   return _c(
     "v-app",
     [
-      _c("v-navigation-drawer", { attrs: { app: "" } }, [
-        _vm._v("\n                Sidebar\n            ")
-      ]),
-      _vm._v(" "),
-      _c("v-app-bar", { attrs: { app: "" } }, [
-        _vm._v("\n                Navbar\n            ")
-      ]),
-      _vm._v(" "),
       _c(
-        "v-main",
-        [_c("v-container", { attrs: { fluid: "" } }, [_c("router-view")], 1)],
+        "v-navigation-drawer",
+        {
+          attrs: { app: "" },
+          scopedSlots: _vm._u(
+            [
+              !_vm.guest
+                ? {
+                    key: "append",
+                    fn: function() {
+                      return [
+                        _c(
+                          "div",
+                          { staticClass: "pa-2" },
+                          [
+                            _c(
+                              "v-btn",
+                              { attrs: { block: "", color: "white--text" } },
+                              [
+                                _c("v-icon", { attrs: { left: "" } }, [
+                                  _vm._v("mdi-lock")
+                                ]),
+                                _vm._v(
+                                  "\n                                Logout\n                            "
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    },
+                    proxy: true
+                  }
+                : null
+            ],
+            null,
+            true
+          ),
+          model: {
+            value: _vm.drawer,
+            callback: function($$v) {
+              _vm.drawer = $$v
+            },
+            expression: "drawer"
+          }
+        },
+        [
+          _c(
+            "v-list",
+            [
+              !_vm.guest
+                ? _c(
+                    "v-list-item",
+                    [
+                      _c(
+                        "v-list-item-avatar",
+                        [
+                          _c("v-img", {
+                            attrs: {
+                              src:
+                                "https://randomuser.me/api/portraits/men/77.jpg"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item-content",
+                        [_c("v-list-item-title", [_vm._v("John Leider")])],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.guest
+                ? _c(
+                    "div",
+                    { staticClass: "pa-2" },
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "rb-1 mb-1",
+                          attrs: {
+                            rounded: "",
+                            color: "buttongreen white--text"
+                          }
+                        },
+                        [
+                          _c("v-icon", { attrs: { left: "" } }, [
+                            _vm._v("mdi-lock")
+                          ]),
+                          _vm._v(
+                            "\n                        Login\n                    "
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: {
+                            rounded: "",
+                            color: "buttongreen white--text"
+                          }
+                        },
+                        [
+                          _c("v-icon", { attrs: { left: "" } }, [
+                            _vm._v("mdi-account")
+                          ]),
+                          _vm._v(
+                            "\n                        Register\n                    "
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("v-divider"),
+              _vm._v(" "),
+              _vm._l(_vm.menus, function(item, index) {
+                return _c(
+                  "v-list-item",
+                  { key: "menu" + index, attrs: { to: item.route } },
+                  [
+                    _c(
+                      "v-list-item-icon",
+                      [
+                        _c("v-icon", { attrs: { left: "" } }, [
+                          _vm._v(_vm._s(item.icon))
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [_c("v-list-item-title", [_vm._v(_vm._s(item.title))])],
+                      1
+                    )
+                  ],
+                  1
+                )
+              })
+            ],
+            2
+          )
+        ],
         1
       ),
       _vm._v(" "),
-      _c("v-footer", { attrs: { app: "" } }, [
-        _vm._v(
-          "\n                © 2021 CrowdFunding • All rights reserved • Love from Lampung\n            "
-        )
-      ])
+      _c(
+        "v-app-bar",
+        { attrs: { app: "", color: "buttongreen white--text" } },
+        [
+          _c("v-app-bar-nav-icon", {
+            on: {
+              click: function($event) {
+                $event.stopPropagation()
+                _vm.drawer = !_vm.drawer
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("v-toolbar-title", [_vm._v("Yayasan Peduli Kasih")]),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            { attrs: { icon: "" } },
+            [
+              _c(
+                "v-badge",
+                {
+                  attrs: { light: "", color: "pink", overlap: "" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "badge",
+                      fn: function() {
+                        return [_c("span", [_vm._v("3")])]
+                      },
+                      proxy: true
+                    }
+                  ])
+                },
+                [_vm._v(" "), _c("v-icon", [_vm._v("mdi-cash-multiple")])],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-text-field", {
+            staticClass: "mb-1",
+            attrs: {
+              slot: "extension",
+              "hide-details": "",
+              "append-icon": "mdi-microphone",
+              filled: "",
+              rounded: "",
+              dense: "",
+              label: "Search",
+              "prepend-inner-icon": "mdi-magnify",
+              "solo-inverted": ""
+            },
+            slot: "extension"
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-main",
+        [
+          _c(
+            "v-container",
+            { attrs: { fluid: "" } },
+            [_c("v-slide-y-transition", [_c("router-view")], 1)],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-footer",
+        { attrs: { app: "" } },
+        [
+          _c(
+            "v-footer",
+            { attrs: { absolute: "", app: "" } },
+            [
+              _c("v-card-text", { staticClass: "text-center" }, [
+                _vm._v(
+                  "\n                        © " +
+                    _vm._s(new Date().getFullYear()) +
+                    " - "
+                ),
+                _c("strong", [_vm._v("Yayasan Peduli Kasih")])
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -61492,7 +61826,15 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 var opts = {};
-/* harmony default export */ __webpack_exports__["default"] = (new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a(opts));
+/* harmony default export */ __webpack_exports__["default"] = (new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
+  theme: {
+    themes: {
+      light: {
+        buttongreen: '#2C6D6A'
+      }
+    }
+  }
+}));
 
 /***/ }),
 

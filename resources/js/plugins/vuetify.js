@@ -10,7 +10,8 @@ export default new Vuetify({
     theme: {
         themes: {
             light: {
-                buttongreen : '#2C6D6A'
+                buttongreen : '#2C6D6A',
+                dasarback: '#F6F7FB',
             }
         }
     }

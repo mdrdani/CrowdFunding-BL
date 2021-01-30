@@ -42,3 +42,11 @@ Route::group([
     Route::post('store','CampaignController@store');
 }
 );
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'campaign'
+], function () {
+    Route::get('random/{count}', 'CampaignController@random');
+    Route::post('store','CampaignController@store');
+});

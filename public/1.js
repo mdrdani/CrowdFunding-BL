@@ -25,9 +25,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      campaigns: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('api/campaign/random/2').then(function (response) {
+      var data = response.data.data;
+      _this.campaigns = data.campaigns; // console.log(this.campaigns)
+    })["catch"](function (error) {
+      var response = error.response;
+      console.log(response);
+    });
   }
 });
 
@@ -48,28 +73,76 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _c(
+        "v-container",
+        { staticClass: "ma-0 pa-0", attrs: { "grid-list-sm": "" } },
+        [
+          _c(
+            "div",
+            { staticClass: "text-right" },
+            [
+              _c(
+                "v-btn",
+                {
+                  staticClass: "blue--text",
+                  attrs: { small: "", text: "", to: "/campaigns" }
+                },
+                [
+                  _vm._v("\n                All Campaigns "),
+                  _c("v-icon", [_vm._v("mdi-chevron-right")])
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-layout",
+            { attrs: { wrap: "" } },
+            _vm._l(_vm.campaigns, function(campaign, index) {
+              return _c(
+                "v-flex",
+                { key: "campaign-" + campaign.id, attrs: { xs6: "" } },
+                [
+                  _c(
+                    "v-card",
+                    { attrs: { to: "/campaign/" + campaign.id } },
+                    [
+                      _c(
+                        "v-img",
+                        {
+                          staticClass: "white--text",
+                          attrs: { src: campaign.image }
+                        },
+                        [
+                          _c("v-card-title", {
+                            staticClass: "fill-height align-end",
+                            domProps: { textContent: _vm._s(campaign.title) }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            }),
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("Home")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v("\n                    Home Components\n                ")
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

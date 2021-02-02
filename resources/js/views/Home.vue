@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- template Campaign -->
         <v-container class="ma-0 pa-0" grid-list-sm>
             <div class="text-right">
                 <v-btn small text to="/campaigns" class="blue--text">
@@ -19,8 +20,32 @@
                             ></v-card-title>
                             </v-img>
                     </v-card>
-
                 </v-flex>
+            </v-layout>
+        </v-container>
+        <!-- end -->
+
+        <!-- template blogs -->
+        <v-container class="mt-2 pa-0" grid-list-sm>
+            <div class="text-right">
+                <v-btn small text to="/blogs" class="blue--text">
+                    All Blogs <v-icon>mdi-chevron-right</v-icon>
+                </v-btn>
+            </div>
+            <v-layout wrap>
+                <v-carousel cycle hide-delimiters height="250px">
+                    <v-carousel-item v-for="(blog,i) in blogs" :key="`blog-`+ blog.id ">
+                        <v-img :src="blog.image" class="fill-height">
+                            <v-container fill-height fluid pa-0 ma-0>
+                                <v-layout fill-height align-end>
+                                    <v-flex xs12 mx-2>
+                                        <span class="headline white--text" v-text="blog.title"></span>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                        </v-img>
+                    </v-carousel-item>
+                </v-carousel>
             </v-layout>
         </v-container>
     </div>
@@ -30,8 +55,10 @@
     export default {
         data: () => ({
             campaigns: [],
+            blogs: []
         }),
         created(){
+            // get campaign
             axios.get('api/campaign/random/2')
             .then((response) => {
                 let { data } = response.data
@@ -40,7 +67,19 @@
             })
             .catch((error) => {
                 let { response } = error
-                console.log(response)
+                console.log(responses)
+            })
+
+           // get campaign
+            axios.get('api/blog/random/2')
+            .then((response) => {
+                let { data } = response.data
+                this.blogs = data.blogs
+                // console.log(this.blogs)
+            })
+            .catch((error) => {
+                let { response } = error
+                console.log(responses)
             })
         }
     }

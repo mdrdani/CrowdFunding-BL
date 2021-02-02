@@ -54,8 +54,8 @@
 
             </v-navigation-drawer>
 
-            <!-- navbar -->
-            <v-app-bar app color="buttongreen white--text">
+            <!-- Header -->
+            <v-app-bar app color="buttongreen white--text" dark v-if="isHome">
                 <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
                 
                 <v-toolbar-title>Yayasan Peduli Kasih</v-toolbar-title>
@@ -79,10 +79,27 @@
                 filled
                 rounded
                 dense
-                label="Search"
+                label="Cari"
                 prepend-inner-icon="mdi-magnify"
                 solo-inverted
                 ></v-text-field>
+            </v-app-bar>
+
+            <v-app-bar app color="buttongreen white--text" dark  v-else>
+                <v-btn icon @click.stop="$router.go(-1)">
+                    <v-icon>mdi-arrow-left-circle</v-icon>
+                </v-btn>
+                <!-- pemisah konten -->
+                <v-spacer></v-spacer>
+
+                <v-btn icon>
+                    <v-badge color="pinkk" overlap>
+                        <template v-slot:badge>
+                            <span>3</span>
+                        </template>
+                        <v-icon>mdi-cash-multiple</v-icon>
+                    </v-badge>
+                </v-btn>
             </v-app-bar>
 
             <!-- body -->
@@ -118,6 +135,11 @@ export default {
                 {title: 'Campaigns', icon: 'mdi-hand-heart', route: '/campaigns'},
             ],
             guest: true,
-        })
+        }),
+        computed: {
+            isHome() {
+                return (this.$route.path === '/' || this.$route.path === '/home')
+            }
+        }
 }
 </script>

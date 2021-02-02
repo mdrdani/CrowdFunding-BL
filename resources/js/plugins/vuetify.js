@@ -12,6 +12,7 @@ export default new Vuetify({
             light: {
                 buttongreen : '#2C6D6A',
                 dasarback: '#F6F7FB',
+                pinkk: '#FF8F8F'
             }
         }
     }

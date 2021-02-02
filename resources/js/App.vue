@@ -63,7 +63,7 @@
                 <v-spacer></v-spacer>
 
                 <v-btn icon>
-                    <v-badge light color="pink" overlap>
+                    <v-badge light color="pinkk" overlap>
                         <template v-slot:badge>
                             <span>3</span>
                         </template>

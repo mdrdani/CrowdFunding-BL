@@ -122,7 +122,7 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  staticClass: "blue--text",
+                  staticClass: "dark--text",
                   attrs: { small: "", text: "", to: "/campaigns" }
                 },
                 [
@@ -185,7 +185,7 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  staticClass: "blue--text",
+                  staticClass: "dark--text",
                   attrs: { small: "", text: "", to: "/blogs" }
                 },
                 [

@@ -3,7 +3,7 @@
         <!-- template Campaign -->
         <v-container class="ma-0 pa-0" grid-list-sm>
             <div class="text-right">
-                <v-btn small text to="/campaigns" class="blue--text">
+                <v-btn small text to="/campaigns" class="dark--text">
                     All Campaigns <v-icon>mdi-chevron-right</v-icon>
                 </v-btn>
             </div>
@@ -28,7 +28,7 @@
         <!-- template blogs -->
         <v-container class="mt-2 pa-0" grid-list-sm>
             <div class="text-right">
-                <v-btn small text to="/blogs" class="blue--text">
+                <v-btn small text to="/blogs" class="dark--text">
                     All Blogs <v-icon>mdi-chevron-right</v-icon>
                 </v-btn>
             </div>

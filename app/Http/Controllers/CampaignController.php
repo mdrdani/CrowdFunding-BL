@@ -81,4 +81,17 @@ class CampaignController extends Controller
             'data' => $data
         ], 200);
     }
+
+    public function detail($id)
+    {
+        $campaign = Campaign::findOrFail($id);
+
+        $data['campaign'] = $campaign;
+
+        return response()->json([
+            'response_code' => '00',
+            'response_message' => 'Data detail campaign berhasil di tampilkan',
+            'data' => $data
+        ],200);
+    }
 }

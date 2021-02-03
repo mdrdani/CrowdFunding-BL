@@ -50,6 +50,7 @@ Route::group([
     Route::get('random/{count}', 'CampaignController@random');
     Route::post('store','CampaignController@store');
     Route::get('/','CampaignController@index');
+    Route::get('/{id}', 'CampaignController@detail');
 });
 
 Route::group([

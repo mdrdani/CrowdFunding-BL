@@ -1,25 +1,10 @@
 <template>
     <div>
-        <!-- template Campaign -->
+        <!-- template blogs -->
         <v-container class="ma-0 pa-0" grid-list-sm>
             <div class="text-right">
-                <v-btn small text to="/campaigns" class="dark--text">
-                    All Campaigns <v-icon>mdi-chevron-right</v-icon>
-                </v-btn>
-            </div>
-            <v-layout wrap>
-                <v-flex v-for="(campaign, index) in campaigns" :key="`campaign-` + campaign.id" xs6>
-                    <campaign-item :campaign="campaign" />
-                </v-flex>
-            </v-layout>
-        </v-container>
-        <!-- end -->
-
-        <!-- template blogs -->
-        <v-container class="mt-2 pa-0" grid-list-sm>
-            <div class="text-right">
                 <v-btn small text to="/blogs" class="dark--text">
-                    All Blogs <v-icon>mdi-chevron-right</v-icon>
+                    Semua Berita<v-icon>mdi-chevron-right</v-icon>
                 </v-btn>
             </div>
             <v-layout wrap>
@@ -38,6 +23,23 @@
                 </v-carousel>
             </v-layout>
         </v-container>
+
+
+        <!-- template Campaign -->
+        <v-container class="mt-2 pa-0" grid-list-sm>
+            <div class="text-right">
+                <v-btn small text to="/campaigns" class="dark--text">
+                    Semua Campaign<v-icon>mdi-chevron-right</v-icon>
+                </v-btn>
+            </div>
+            <v-layout wrap>
+                <v-flex v-for="(campaign, index) in campaigns" :key="`campaign-` + campaign.id" xs6>
+                    <campaign-item :campaign="campaign" />
+                </v-flex>
+            </v-layout>
+        </v-container>
+        <!-- end -->
+
     </div>
 </template>
 

@@ -52,6 +52,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -118,51 +120,10 @@ var render = function() {
                 "v-btn",
                 {
                   staticClass: "dark--text",
-                  attrs: { small: "", text: "", to: "/campaigns" }
-                },
-                [
-                  _vm._v("\n                All Campaigns "),
-                  _c("v-icon", [_vm._v("mdi-chevron-right")])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-layout",
-            { attrs: { wrap: "" } },
-            _vm._l(_vm.campaigns, function(campaign, index) {
-              return _c(
-                "v-flex",
-                { key: "campaign-" + campaign.id, attrs: { xs6: "" } },
-                [_c("campaign-item", { attrs: { campaign: campaign } })],
-                1
-              )
-            }),
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-container",
-        { staticClass: "mt-2 pa-0", attrs: { "grid-list-sm": "" } },
-        [
-          _c(
-            "div",
-            { staticClass: "text-right" },
-            [
-              _c(
-                "v-btn",
-                {
-                  staticClass: "dark--text",
                   attrs: { small: "", text: "", to: "/blogs" }
                 },
                 [
-                  _vm._v("\n                All Blogs "),
+                  _vm._v("\n                Semua Berita"),
                   _c("v-icon", [_vm._v("mdi-chevron-right")])
                 ],
                 1
@@ -237,6 +198,47 @@ var render = function() {
                 1
               )
             ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-container",
+        { staticClass: "mt-2 pa-0", attrs: { "grid-list-sm": "" } },
+        [
+          _c(
+            "div",
+            { staticClass: "text-right" },
+            [
+              _c(
+                "v-btn",
+                {
+                  staticClass: "dark--text",
+                  attrs: { small: "", text: "", to: "/campaigns" }
+                },
+                [
+                  _vm._v("\n                Semua Campaign"),
+                  _c("v-icon", [_vm._v("mdi-chevron-right")])
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-layout",
+            { attrs: { wrap: "" } },
+            _vm._l(_vm.campaigns, function(campaign, index) {
+              return _c(
+                "v-flex",
+                { key: "campaign-" + campaign.id, attrs: { xs6: "" } },
+                [_c("campaign-item", { attrs: { campaign: campaign } })],
+                1
+              )
+            }),
             1
           )
         ],

@@ -1,5 +1,6 @@
 <template>
    <v-app>
+
        <!-- sidebar -->
             <v-navigation-drawer app 
             v-model="drawer"
@@ -63,12 +64,13 @@
                 <v-spacer></v-spacer>
 
                 <v-btn icon>
-                    <v-badge light color="pinkk" overlap>
+                    <v-badge light color="pinkk" overlap v-if="transaction>0">
                         <template v-slot:badge>
-                            <span>3</span>
+                            <span>{{ transaction }}</span>
                         </template>
                         <v-icon>mdi-cash-multiple</v-icon>
                     </v-badge>
+                    <v-icon v-else>mdi-cash-multiple</v-icon>
                 </v-btn>
 
                 <v-text-field
@@ -85,7 +87,7 @@
                 ></v-text-field>
             </v-app-bar>
 
-            <v-app-bar app color="buttongreen white--text" dark  v-else>
+            <v-app-bar class="mb-2" app color="buttongreen white--text" dark  v-else>
                 <v-btn icon @click.stop="$router.go(-1)">
                     <v-icon>mdi-arrow-left-circle</v-icon>
                 </v-btn>
@@ -93,12 +95,13 @@
                 <v-spacer></v-spacer>
 
                 <v-btn icon>
-                    <v-badge color="pinkk" overlap>
+                    <v-badge color="pinkk" overlap v-if="transaction>0">
                         <template v-slot:badge>
-                            <span>3</span>
+                            <span>{{ transaction }}</span>
                         </template>
                         <v-icon>mdi-cash-multiple</v-icon>
                     </v-badge>
+                    <v-icon v-else>mdi-cash-multiple</v-icon>
                 </v-btn>
             </v-app-bar>
 
@@ -139,6 +142,10 @@ export default {
         computed: {
             isHome() {
                 return (this.$route.path === '/' || this.$route.path === '/home')
+            },
+            transaction () 
+            {
+                return this.$store.getters.transaction
             }
         }
 }

@@ -35,7 +35,7 @@
                 {{ campaign.description }}
             </v-card-text>
             <v-card-actions>
-                <v-btn block color="buttongreen" @click="donate" :disabled="campaign.collected >= campaign.required">
+                <v-btn block color="buttongreen white--text" @click="donate" :disabled="campaign.collected >= campaign.required">
                     <v-icon>mdi-money</v-icon> &nbsp;
                     DONATE
                 </v-btn>
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
     data: () => ({
         campaign : {},
@@ -66,9 +67,12 @@ export default {
                 console.log(responses)
             })
         },
-        donate(){
-            this.$store.commit('insert')
-        }
+        ...mapMutations({
+            donate : 'transaction/insert'
+        })
+        // donate(){
+        //     this.$store.commit('insert')
+        // }
     }
 }
 </script>

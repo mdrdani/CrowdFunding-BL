@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Yayasan Peduli Kasih</title>
     <link rel="stylesheet" href="{{ url('/css/app.css') }}">
+    <style>
+        #app {
+            font-family: 'Poppins';
+        }
+    </style>
 </head>
 <body>
     <div id="app">

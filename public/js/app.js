@@ -38401,7 +38401,12 @@ var render = function() {
                           [
                             _c(
                               "v-btn",
-                              { attrs: { block: "", color: "white--text" } },
+                              {
+                                attrs: {
+                                  block: "",
+                                  color: "buttongreen white--text"
+                                }
+                              },
                               [
                                 _c("v-icon", { attrs: { left: "" } }, [
                                   _vm._v("mdi-lock")

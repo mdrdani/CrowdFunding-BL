@@ -45,7 +45,7 @@
 
                 <template v-slot:append v-if="!guest">
                     <div class="pa-2">
-                            <v-btn block color="white--text">
+                            <v-btn block color="buttongreen white--text">
                                 <v-icon left>mdi-lock</v-icon>
                                 Logout
                             </v-btn>

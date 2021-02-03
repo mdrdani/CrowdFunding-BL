@@ -6,11 +6,7 @@
            </v-subheader>
            <v-layout wrap>
                <v-flex v-for="(campaign) in campaigns" :key="`campaign-` + campaign.id" xs6>
-                   <v-card :to="'/campaign/' + campaign.id">
-                            <v-img :src="campaign.image" class="white--text">
-                                <v-card-title class="fill-height align-end" v-text="campaign.title"></v-card-title>
-                            </v-img>
-                   </v-card>
+                   <campaign-item :campaign="campaign" />
                </v-flex>
            </v-layout>
            <v-pagination
@@ -30,6 +26,9 @@
            page : 0,
            lengthPage : 0
         }),
+         components: {
+            CampaignItem : () => import('../components/CampaignItem')
+        },
         created(){
             this.go()
         },

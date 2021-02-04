@@ -1,6 +1,11 @@
 <template>
    <v-app>
        <alert></alert>
+
+       <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+           <search @closed="closeDialog"></search>
+       </v-dialog>
+
        <!-- sidebar -->
             <v-navigation-drawer app 
             v-model="drawer"
@@ -81,9 +86,10 @@
                 filled
                 rounded
                 dense
-                label="Cari"
+                label="Search"
                 prepend-inner-icon="mdi-magnify"
                 solo-inverted
+                @click="openDialog"
                 ></v-text-field>
             </v-app-bar>
 
@@ -133,7 +139,8 @@ import {mapGetters} from 'vuex'
 export default {
         name : 'App',
         components : {
-            Alert : () => import('./components/Alert')
+            Alert : () => import('./components/Alert'),
+            Search : () => import('./components/Search')
         },
         data: () =>  ({
             drawer: false,
@@ -142,6 +149,7 @@ export default {
                 {title: 'Campaigns', icon: 'mdi-hand-heart', route: '/campaigns'},
             ],
             guest: false,
+            dialog: false,
         }),
         computed: {
             isHome() {
@@ -151,5 +159,13 @@ export default {
                 transactions : 'transaction/transactions'
             }),
         },
+        methods: {
+            closeDialog (value) {
+                this.dialog = value
+            },
+            openDialog(){
+                this.dialog = true
+            }
+        }
 }
 </script>

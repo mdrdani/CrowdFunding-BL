@@ -158,12 +158,12 @@ var render = function() {
     [
       _c(
         "v-toolbar",
-        { attrs: { dark: "", color: "buttongreen white--text" } },
+        { attrs: { color: "dark--text" } },
         [
           _c(
             "v-btn",
             {
-              attrs: { icon: "", dark: "" },
+              attrs: { icon: "" },
               nativeOn: {
                 click: function($event) {
                   return _vm.close($event)
@@ -246,7 +246,7 @@ var render = function() {
                     "v-btn",
                     {
                       attrs: {
-                        color: "success lighten-1",
+                        color: "buttongreen  white--text",
                         disabled: !_vm.valid
                       },
                       on: { click: _vm.submit }

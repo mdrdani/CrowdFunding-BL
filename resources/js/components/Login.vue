@@ -1,7 +1,7 @@
 <template>
     <v-card>
-        <v-toolbar dark color="buttongreen white--text">
-            <v-btn icon dark @click.native="close">
+        <v-toolbar color="dark--text">
+            <v-btn icon @click.native="close">
                 <v-icon>mdi-close</v-icon>
             </v-btn>
             <v-toolbar-title>Login</v-toolbar-title>
@@ -31,7 +31,7 @@
 
                 <div class="text-xs-center">
                         <v-btn
-                        color="success lighten-1"
+                        color="buttongreen  white--text"
                         :disabled="!valid"
                         @click="submit"
                         >Login

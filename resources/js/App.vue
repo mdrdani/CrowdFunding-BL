@@ -23,7 +23,7 @@
                     </v-list-item>
 
                 <div class="pa-2" v-if="guest">
-                    <v-btn rounded color="buttongreen white--text" class="rb-1 mb-1" @click="setDialogComponent('login')">
+                    <v-btn rounded color="buttongreen white--text" @click="setDialogComponent('login')">
                         <v-icon left>mdi-lock</v-icon>
                         Login
                     </v-btn>
@@ -53,7 +53,7 @@
 
                 <template v-slot:append v-if="!guest">
                     <div class="pa-2">
-                            <v-btn block color="buttongreen white--text">
+                            <v-btn block color="buttongreen white--text" @click="logout">
                                 <v-icon left>mdi-lock</v-icon>
                                 Logout
                             </v-btn>
@@ -177,8 +177,33 @@ export default {
             ...mapActions({
                 setDialogStatus : 'dialog/setStatus',
                 setDialogComponent : 'dialog/setComponent',
-            })
-            
+                setAuth : 'auth/set',
+                setAlert : 'alert/set',
+            }),
+            logout() {
+                let config = {
+                    headers : {
+                        'Authorization' : 'Bearer' + this.user.token,
+                    },
+                }
+                axios.get('/api/auth/logout', {}. config)
+                .then((response) => {
+                    this.setAuth({})
+                    this.setAlert({
+                        status : true,
+                        color : 'success',
+                        text : 'Logout Successfully'
+                    })
+                })
+                .catch((error) => {
+                    let { data } = error.response
+                    this.setAlert({
+                        status : true,
+                        color : 'error',
+                        text : data.message
+                    })
+                })
+            }
         }
 }
 </script>

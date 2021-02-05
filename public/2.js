@@ -61,6 +61,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -99,8 +100,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           'password': this.password
         };
         axios.post('/api/auth/login', formData).then(function (response) {
-          var data = response.data.data;
-          console.log(data);
+          var data = response.data.data; // console.log(data)
 
           _this.setAuth(data);
 
@@ -174,7 +174,9 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("v-toolbar-title", [_vm._v("Login")])
+          _c("v-toolbar-title", [_vm._v("Login")]),
+          _vm._v(" "),
+          _c("v-subheader", [_vm._v("Sign to Continue ")])
         ],
         1
       ),

@@ -5,6 +5,7 @@
                 <v-icon>mdi-close</v-icon>
             </v-btn>
             <v-toolbar-title>Login</v-toolbar-title>
+            <v-subheader>Sign to Continue </v-subheader>
         </v-toolbar>
         <v-divider></v-divider>
 
@@ -85,7 +86,7 @@ export default {
                 axios.post('/api/auth/login', formData)
                 .then((response) => {
                     let { data } = response.data
-                    console.log(data)
+                    // console.log(data)
                     this.setAuth(data)
                     if(this.user.user.id.length>0){
                         this.setAlert({

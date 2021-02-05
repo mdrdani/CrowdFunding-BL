@@ -179,6 +179,7 @@ export default {
                 setDialogComponent : 'dialog/setComponent',
                 setAuth : 'auth/set',
                 setAlert : 'alert/set',
+                checkToken : 'auth/checkToken'
             }),
             logout() {
                 let config = {
@@ -203,6 +204,11 @@ export default {
                         text : data.message
                     })
                 })
+            }
+        },
+        mounted() {
+            if(this.user) {
+                this.checkToken(this.user)
             }
         }
 }

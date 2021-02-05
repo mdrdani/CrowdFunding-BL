@@ -2220,7 +2220,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     setDialogStatus: 'dialog/setStatus',
     setDialogComponent: 'dialog/setComponent',
     setAuth: 'auth/set',
-    setAlert: 'alert/set'
+    setAlert: 'alert/set',
+    checkToken: 'auth/checkToken'
   })), {}, {
     logout: function logout() {
       var _this = this;
@@ -2248,7 +2249,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       });
     }
-  })
+  }),
+  mounted: function mounted() {
+    if (this.user) {
+      this.checkToken(this.user);
+    }
+  }
 });
 
 /***/ }),
@@ -101018,6 +101024,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: {
@@ -101032,6 +101041,19 @@ __webpack_require__.r(__webpack_exports__);
     set: function set(_ref, payload) {
       var commit = _ref.commit;
       commit('set', payload);
+    },
+    checkToken: function checkToken(_ref2, payload) {
+      var commit = _ref2.commit;
+      var config = {
+        headers: {
+          'Authorization': 'Bearer' + payload.token
+        }
+      };
+      axios.post('/api/auth/check-token', {}, config).then(function (response) {
+        commit('set', payload);
+      })["catch"](function (error) {
+        commit('set', {});
+      });
     }
   },
   getters: {

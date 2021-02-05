@@ -2176,7 +2176,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/Alert */ "./resources/js/components/Alert.vue"));
     },
     Search: function Search() {
-      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/Search */ "./resources/js/components/Search.vue"));
+      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/Search */ "./resources/js/components/Search.vue"));
+    },
+    Login: function Login() {
+      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/Login */ "./resources/js/components/Login.vue"));
     }
   },
   data: function data() {
@@ -38528,10 +38531,7 @@ var render = function() {
                         "v-list-item-avatar",
                         [
                           _c("v-img", {
-                            attrs: {
-                              src:
-                                "https://randomuser.me/api/portraits/men/77.jpg"
-                            }
+                            attrs: { src: _vm.user.user.photo_profile }
                           })
                         ],
                         1
@@ -38539,7 +38539,11 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-list-item-content",
-                        [_c("v-list-item-title", [_vm._v("John Leider")])],
+                        [
+                          _c("v-list-item-title", [
+                            _vm._v(_vm._s(_vm.user.user.name))
+                          ])
+                        ],
                         1
                       )
                     ],
@@ -38559,6 +38563,11 @@ var render = function() {
                           attrs: {
                             rounded: "",
                             color: "buttongreen white--text"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.setDialogComponent("login")
+                            }
                           }
                         },
                         [
@@ -100322,25 +100331,25 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'home',
     alias: '/home',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/views/Home.vue"));
+      return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/views/Home.vue"));
     }
   }, {
     path: '/donations',
     name: 'donations',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/Donations.vue */ "./resources/js/views/Donations.vue"));
+      return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/Donations.vue */ "./resources/js/views/Donations.vue"));
     }
   }, {
     path: '/campaigns',
     name: 'campaigns',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/Campaigns.vue */ "./resources/js/views/Campaigns.vue"));
+      return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/Campaigns.vue */ "./resources/js/views/Campaigns.vue"));
     }
   }, {
     path: '/campaign/:id',
     name: 'campaign',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/Campaign.vue */ "./resources/js/views/Campaign.vue"));
+      return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/Campaign.vue */ "./resources/js/views/Campaign.vue"));
     }
   }, {
     path: '*',

@@ -36,19 +36,7 @@
 
                 <v-divider></v-divider>
 
-                <v-list-item
-                v-for="(item,index) in menus"
-                :key="'menu'+index"
-                :to="item.route"
-                >
-                <v-list-item-icon>
-                    <v-icon left>{{ item.icon}}</v-icon>
-                </v-list-item-icon>
-
-                <v-list-item-content>
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item-content>
-                </v-list-item>
+                
                 </v-list>
 
                 <template v-slot:append v-if="!guest">
@@ -63,7 +51,18 @@
             </v-navigation-drawer>
 
             <!-- Header -->
-            <v-app-bar app color="buttongreen white--text" dark v-if="isHome">
+            <v-app-bar 
+            app
+            color="buttongreen white--text" 
+            dark 
+            src="https://picsum.photos/1920/1080?random"
+            v-if="isHome">
+            <template v-slot:img="{ props }">
+                <v-img
+                v-bind="props"
+                gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+                ></v-img>
+            </template>
                 <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
                 
                 <v-toolbar-title>Yayasan Peduli Kasih</v-toolbar-title>
@@ -75,31 +74,31 @@
                         <template v-slot:badge>
                             <span>{{ transactions }}</span>
                         </template>
-                        <v-icon>mdi-cash-multiple</v-icon>
+                        <v-icon>mdi-heart</v-icon>
                     </v-badge>
-                    <v-icon v-else>mdi-cash-multiple</v-icon>
+                    <v-icon v-else>mdi-heart</v-icon>
                 </v-btn>
-
-                <v-text-field
-                class="mb-1"
-                slot="extension"
-                hide-details
-                append-icon="mdi-microphone"
-                filled
-                rounded
-                dense
-                label="Search"
-                prepend-inner-icon="mdi-magnify"
-                solo-inverted
-                @click="setDialogComponent('search')"
-                ></v-text-field>
+                <v-btn icon>
+                    <v-icon @click="setDialogComponent('search')">mdi-magnify</v-icon>
+                </v-btn>
             </v-app-bar>
 
-            <v-app-bar class="mb-2" app color="buttongreen white--text" dark  v-else>
+            <v-app-bar 
+            class="mb-2" 
+            app 
+            color="buttongreen white--text" 
+            dark
+            src="https://picsum.photos/1920/1080?random"  
+            v-else>
+            <template v-slot:img="{ props }">
+                <v-img
+                v-bind="props"
+                gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+                ></v-img>
+            </template>
                 <v-btn icon @click.stop="$router.go(-1)">
                     <v-icon>mdi-arrow-left-circle</v-icon>
                 </v-btn>
-                <!-- pemisah konten -->
                 <v-spacer></v-spacer>
 
                 <v-btn icon>
@@ -107,33 +106,33 @@
                         <template v-slot:badge>
                             <span>{{ transactions }}</span>
                         </template>
-                        <v-icon>mdi-cash-multiple</v-icon>
+                        <v-icon>mdi-heart</v-icon>
                     </v-badge>
-                    <v-icon v-else>mdi-cash-multiple</v-icon>
+                    <v-icon v-else>mdi-heart</v-icon>
                 </v-btn>
             </v-app-bar>
 
             <!-- body -->
             <v-main>
-
-                <!-- Provides the application the proper gutter -->
                 <v-container fluid>
-
-                <!-- If using vue-router -->
-                <v-slide-y-transition>
-                    <router-view></router-view>
-                </v-slide-y-transition>
-                </v-container>
+                    <v-slide-y-transition>
+                            <router-view></router-view>
+                        </v-slide-y-transition>
+                    </v-container>
             </v-main>
 
-            <!-- footer -->
-            <v-footer app>
-                <v-footer absolute app>
-                    <v-card-text class="text-center">
-                        &copy; {{ new Date().getFullYear() }} - <strong>Yayasan Peduli Kasih</strong>
-                    </v-card-text>
-                </v-footer>
-            </v-footer>
+            <!-- Bottom Navigation-->
+            <v-bottom-navigation >
+                <v-btn 
+                 v-for="(item,index) in menus"
+                :key="'menu'+index"
+                :to="item.route"
+                value="recent">
+                    <v-icon>{{ item.icon}}</v-icon>
+                    <span>{{ item.title }}</span>
+                </v-btn>
+            </v-bottom-navigation>
+            
 </v-app>
 </template>
 <script>
@@ -150,6 +149,7 @@ export default {
             menus: [
                 {title: 'Home', icon: 'mdi-home', route: '/'},
                 {title: 'Campaigns', icon: 'mdi-hand-heart', route: '/campaigns'},
+                {title: 'Blogs', icon:'mdi-book-open',route:'/'}
             ],
             
         }),

@@ -2167,7 +2167,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
@@ -2193,6 +2192,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         title: 'Campaigns',
         icon: 'mdi-hand-heart',
         route: '/campaigns'
+      }, {
+        title: 'Blogs',
+        icon: 'mdi-book-open',
+        route: '/'
       }]
     };
   },
@@ -38745,34 +38748,9 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
-              _c("v-divider"),
-              _vm._v(" "),
-              _vm._l(_vm.menus, function(item, index) {
-                return _c(
-                  "v-list-item",
-                  { key: "menu" + index, attrs: { to: item.route } },
-                  [
-                    _c(
-                      "v-list-item-icon",
-                      [
-                        _c("v-icon", { attrs: { left: "" } }, [
-                          _vm._v(_vm._s(item.icon))
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-list-item-content",
-                      [_c("v-list-item-title", [_vm._v(_vm._s(item.title))])],
-                      1
-                    )
-                  ],
-                  1
-                )
-              })
+              _c("v-divider")
             ],
-            2
+            1
           )
         ],
         1
@@ -38781,8 +38759,45 @@ var render = function() {
       _vm.isHome
         ? _c(
             "v-app-bar",
-            { attrs: { app: "", color: "buttongreen white--text", dark: "" } },
+            {
+              attrs: {
+                app: "",
+                color: "buttongreen white--text",
+                dark: "",
+                src: "https://picsum.photos/1920/1080?random"
+              },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "img",
+                    fn: function(ref) {
+                      var props = ref.props
+                      return [
+                        _c(
+                          "v-img",
+                          _vm._b(
+                            {
+                              attrs: {
+                                gradient:
+                                  "to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+                              }
+                            },
+                            "v-img",
+                            props,
+                            false
+                          )
+                        )
+                      ]
+                    }
+                  }
+                ],
+                null,
+                false,
+                3283470206
+              )
+            },
             [
+              _vm._v(" "),
               _c("v-app-bar-nav-icon", {
                 on: {
                   click: function($event) {
@@ -38824,37 +38839,32 @@ var render = function() {
                             3421690297
                           )
                         },
-                        [
-                          _vm._v(" "),
-                          _c("v-icon", [_vm._v("mdi-cash-multiple")])
-                        ],
+                        [_vm._v(" "), _c("v-icon", [_vm._v("mdi-heart")])],
                         1
                       )
-                    : _c("v-icon", [_vm._v("mdi-cash-multiple")])
+                    : _c("v-icon", [_vm._v("mdi-heart")])
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("v-text-field", {
-                staticClass: "mb-1",
-                attrs: {
-                  slot: "extension",
-                  "hide-details": "",
-                  "append-icon": "mdi-microphone",
-                  filled: "",
-                  rounded: "",
-                  dense: "",
-                  label: "Search",
-                  "prepend-inner-icon": "mdi-magnify",
-                  "solo-inverted": ""
-                },
-                on: {
-                  click: function($event) {
-                    return _vm.setDialogComponent("search")
-                  }
-                },
-                slot: "extension"
-              })
+              _c(
+                "v-btn",
+                { attrs: { icon: "" } },
+                [
+                  _c(
+                    "v-icon",
+                    {
+                      on: {
+                        click: function($event) {
+                          return _vm.setDialogComponent("search")
+                        }
+                      }
+                    },
+                    [_vm._v("mdi-magnify")]
+                  )
+                ],
+                1
+              )
             ],
             1
           )
@@ -38862,9 +38872,39 @@ var render = function() {
             "v-app-bar",
             {
               staticClass: "mb-2",
-              attrs: { app: "", color: "buttongreen white--text", dark: "" }
+              attrs: {
+                app: "",
+                color: "buttongreen white--text",
+                dark: "",
+                src: "https://picsum.photos/1920/1080?random"
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "img",
+                  fn: function(ref) {
+                    var props = ref.props
+                    return [
+                      _c(
+                        "v-img",
+                        _vm._b(
+                          {
+                            attrs: {
+                              gradient:
+                                "to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+                            }
+                          },
+                          "v-img",
+                          props,
+                          false
+                        )
+                      )
+                    ]
+                  }
+                }
+              ])
             },
             [
+              _vm._v(" "),
               _c(
                 "v-btn",
                 {
@@ -38910,13 +38950,10 @@ var render = function() {
                             3421690297
                           )
                         },
-                        [
-                          _vm._v(" "),
-                          _c("v-icon", [_vm._v("mdi-cash-multiple")])
-                        ],
+                        [_vm._v(" "), _c("v-icon", [_vm._v("mdi-heart")])],
                         1
                       )
-                    : _c("v-icon", [_vm._v("mdi-cash-multiple")])
+                    : _c("v-icon", [_vm._v("mdi-heart")])
                 ],
                 1
               )
@@ -38938,25 +38975,19 @@ var render = function() {
       ),
       _vm._v(" "),
       _c(
-        "v-footer",
-        { attrs: { app: "" } },
-        [
-          _c(
-            "v-footer",
-            { attrs: { absolute: "", app: "" } },
+        "v-bottom-navigation",
+        _vm._l(_vm.menus, function(item, index) {
+          return _c(
+            "v-btn",
+            { key: "menu" + index, attrs: { to: item.route, value: "recent" } },
             [
-              _c("v-card-text", { staticClass: "text-center" }, [
-                _vm._v(
-                  "\n                        © " +
-                    _vm._s(new Date().getFullYear()) +
-                    " - "
-                ),
-                _c("strong", [_vm._v("Yayasan Peduli Kasih")])
-              ])
+              _c("v-icon", [_vm._v(_vm._s(item.icon))]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(item.title))])
             ],
             1
           )
-        ],
+        }),
         1
       )
     ],

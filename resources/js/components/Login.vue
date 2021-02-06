@@ -38,6 +38,13 @@
                         >Login
                         <v-icon right dark>mdi-lock-open</v-icon>
                         </v-btn>
+
+                        <v-btn
+                        color="buttongreen white--text"
+                        @click="authProvider('google')"
+                        >Login With Google 
+                            <v-icon>mdi-google</v-icon>
+                        </v-btn>
                 </div>
             </v-form>
         </v-container>
@@ -116,6 +123,22 @@ export default {
         },
         close() {
             this.$emit('closed', false)
+        },
+        authProvider(provider){
+            let url = '/api/auth/social/' + provider
+            axios.get(url)
+            .then((response) => {
+                let data = response.data
+                // console.log(data)
+                window.location.href = data.url
+            })
+            .catch((error) => {
+                this.setAlert({
+                    status : true,
+                    text : 'Login Failed',
+                    color : 'error'
+                })
+            })
         }
     },
 }

@@ -22,7 +22,7 @@
                         
                         <tr>
                             <td>Tgl Terbit</td>
-                            <td>{{ blog.created_at}}</td>
+                            <td>{{ blog.created_at | formatDate}}</td>
                         </tr>
                         
                     </tbody>

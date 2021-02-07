@@ -5,6 +5,7 @@ import alert from './stores/alert'
 import auth from './stores/auth'
 import dialog from './stores/dialog'
 import VuexPersist from 'vuex-persist'
+import moment from 'moment'
 
 const vuexPersist = new VuexPersist({
     key :  'sanbercode',
@@ -12,6 +13,11 @@ const vuexPersist = new VuexPersist({
 })
 
 Vue.use(Vuex)
+Vue.filter('formatDate', function(value) {
+    if(value) {
+        return moment(String(value)).locale("id").format('LL')
+    }
+})
 
 export default new Vuex.Store({
     plugins : [vuexPersist.plugin],

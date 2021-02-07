@@ -130,7 +130,11 @@ var render = function() {
                       _c("tr", [
                         _c("td", [_vm._v("Tgl Terbit")]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(_vm.blog.created_at))])
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(_vm._f("formatDate")(_vm.blog.created_at))
+                          )
+                        ])
                       ])
                     ])
                   ]),

@@ -80,7 +80,9 @@ var render = function() {
             [
               _c("v-icon", [_vm._v("mdi-cash")]),
               _vm._v(" "),
-              _c("span", [_vm._v(" " + _vm._s(_vm.blog.created_at))])
+              _c("span", [
+                _vm._v(" " + _vm._s(_vm._f("formatDate")(_vm.blog.created_at)))
+              ])
             ],
             1
           )

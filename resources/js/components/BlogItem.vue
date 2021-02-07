@@ -14,7 +14,7 @@
 
             <v-card-actions>
                 <v-icon>mdi-cash</v-icon>
-                <span> {{blog.created_at}}</span>
+                <span> {{blog.created_at | formatDate}}</span>
             </v-card-actions>
         </v-card>
     </div>

@@ -38,14 +38,7 @@ Route::group([
     Route::post('/profile/update','ProfileController@update');
 });
 
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'campaign',
-], function(){
-    Route::get('random/{count}', 'CampaignController@random');
-    Route::post('store','CampaignController@store');
-}
-);
+
 
 Route::group([
     'middleware' => 'api',
@@ -64,4 +57,6 @@ Route::group([
 ], function () {
     Route::get('random/{count}', 'BlogController@random');
     Route::post('store','BlogController@store');
+    Route::get('/','BlogController@index');
+    Route::get('/{id}','BlogController@detail');
 });

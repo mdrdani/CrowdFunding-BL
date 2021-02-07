@@ -68,4 +68,29 @@ class BlogController extends Controller
             'data' => $data
         ],200);
     }
+
+    public function index()
+    {
+        $blog = Blog::orderBy('created_at','desc')->paginate(6);
+        $data['blog'] = $blog;
+
+        return response()->json([
+            'response_code' => '00',
+            'response_message' => 'data blogs berhasil di tampilkan',
+            'data' => $data
+        ], 200);
+    }
+
+    public function detail($id)
+    {
+        $blog = Blog::findOrFail($id);
+
+        $data['blog'] = $blog;
+
+        return response()->json([
+            'response_code' => '00',
+            'response_message' => 'Data Detail Blog berhasil di tampilkan',
+            'data' => $data
+        ], 200);
+    }
 }

@@ -1,12 +1,7 @@
 <template>
     <div>
         <!-- template blogs -->
-        <v-container class="ma-0 pa-0" grid-list-sm>
-            <div class="text-right">
-                <v-btn small text to="/blogs" class="dark--text">
-                    Semua Berita<v-icon>mdi-chevron-right</v-icon>
-                </v-btn>
-            </div>
+        <v-container class="ma-0 mt-3 pa-0" grid-list-sm>
             <v-layout wrap>
                 <v-carousel cycle hide-delimiters height="250px">
                     <v-carousel-item v-for="(blog,i) in blogs" :key="`blog-`+ blog.id ">

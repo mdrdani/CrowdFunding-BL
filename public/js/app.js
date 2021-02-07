@@ -2195,7 +2195,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         title: 'Blogs',
         icon: 'mdi-book-open',
-        route: '/'
+        route: '/blog'
       }]
     };
   },
@@ -100951,6 +100951,18 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'campaign',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/Campaign.vue */ "./resources/js/views/Campaign.vue"));
+    }
+  }, {
+    path: '/blog',
+    name: 'blogs',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/Blogs.vue */ "./resources/js/views/Blogs.vue"));
+    }
+  }, {
+    path: '/blog/:id',
+    name: 'blog',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/Blog.vue */ "./resources/js/views/Blog.vue"));
     }
   }, {
     path: '/auth/social/:provider/callback',

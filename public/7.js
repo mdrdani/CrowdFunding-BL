@@ -49,11 +49,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -110,28 +105,8 @@ var render = function() {
     [
       _c(
         "v-container",
-        { staticClass: "ma-0 pa-0", attrs: { "grid-list-sm": "" } },
+        { staticClass: "ma-0 mt-3 pa-0", attrs: { "grid-list-sm": "" } },
         [
-          _c(
-            "div",
-            { staticClass: "text-right" },
-            [
-              _c(
-                "v-btn",
-                {
-                  staticClass: "dark--text",
-                  attrs: { small: "", text: "", to: "/blogs" }
-                },
-                [
-                  _vm._v("\n                Semua Berita"),
-                  _c("v-icon", [_vm._v("mdi-chevron-right")])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
           _c(
             "v-layout",
             { attrs: { wrap: "" } },

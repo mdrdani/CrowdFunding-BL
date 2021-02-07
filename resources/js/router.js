@@ -28,6 +28,16 @@ const router = new Router ({
         component: () => import ('./views/Campaign.vue')
     },
     {
+        path:'/blog',
+        name:'blogs',
+        component: () => import('./views/Blogs.vue')
+    },
+    {
+        path:'/blog/:id',
+        name:'blog',
+        component: () => import('./views/Blog.vue')
+    },
+    {
         path : '/auth/social/:provider/callback',
         name : 'social',
         component : ()=> import('./views/Social.vue')

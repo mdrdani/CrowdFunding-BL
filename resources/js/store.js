@@ -9,7 +9,7 @@ import moment from 'moment'
 
 const vuexPersist = new VuexPersist({
     key :  'sanbercode',
-    storage : localStorage
+    storage : sessionStorage
 })
 
 Vue.use(Vuex)
